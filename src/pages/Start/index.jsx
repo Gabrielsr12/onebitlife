@@ -22,7 +22,7 @@ export default function Start() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgba(22, 21, 21, 0.98)",
+    backgroundColor: "rgba(21, 21, 21, 0.98)",
   },
   logo: {
     width: 300,
