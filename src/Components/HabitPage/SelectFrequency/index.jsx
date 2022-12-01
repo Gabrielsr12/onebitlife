@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Image, StyleSheet } from "react-native";
+import { Image, View, StyleSheet } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 
-export default function SelectHabit({ habit, habitInput }) {
-    const [selected, setSelected] = useState(
-        habit?.habitName ? habit?.habitName : "-"
-      );
-      const [data, setData] = useState();
-      useEffect(() => {
-        if (habit?.habitArea === "Mente") {
-          setData(HabitsData.dataMind);
-        }
-        if (habit?.habitArea === "Financeiro") {
-          setData(HabitsData.dataMoney);
-        }
-        if (habit?.habitArea === "Corpo") {
-          setData(HabitsData.dataBody);
-        }
-        if (habit?.habitArea === "Humor") {
-          setData(HabitsData.dataFun);
-        }
-        habitInput(habit?.habitName ? habit?.habitName : undefined);
-      }, []);
+export default function SelectFrequency ({ habitFrequency, frequencyInput }) {
+  const [selected, setSelected] = useState(
+    habitFrequency ? habitFrequency : "-"
+  );
+
+  const data = [
+    { key: "Diário", value: "Diário" },
+    { key: "Semanal", value: "Semanal" },
+    { key: "Mensal", value: "Mensal" },
+  ];
+
+  useEffect(() => {
+    frequencyInput(habitFrequency ? habitFrequency : undefined);
+  }, []);
+
   return (
-    <>
-    <SelectList
-        setSelected={setSelected}
+    <View style={{ marginBottom: 20 }}>
+      <SelectList
         data={data}
         search={false}
+        setSelected={setSelected}
         onSelect={() => {
-          habitInput(selected);
+          alert(selected);
+          frequencyInput(selected);
         }}
         placeholder={selected}
         boxStyles={styles.boxStyle}
@@ -44,7 +40,7 @@ export default function SelectHabit({ habit, habitInput }) {
           />
         }
       />
-    </>
+    </View>
   );
 };
 const styles = StyleSheet.create({
