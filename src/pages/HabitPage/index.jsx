@@ -6,18 +6,19 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  Alert
+  Alert,
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import SelectHabit from "../../Components/HabitPage/SelectHabit";
 import SelectFrequency from "../../Components/HabitPage/SelectFrequency";
-
+import Notification from "../../Components/HabitPage/Notification";
 
 export default function HabitPage({ route }) {
-	const navigation = useNavigation();
+  const navigation = useNavigation();
   const [habitInput, setHabitInput] = useState();
   const [frequencyInput, setFrequencyInput] = useState();
+  const [notificationToggle, setNotificationToggle] = useState();
 
   const { create, habit } = route.params;
 
@@ -35,7 +36,7 @@ export default function HabitPage({ route }) {
             />
           </TouchableOpacity>
           <View style={styles.mainContent}>
-          <Text style={styles.title}>Configurações {"\n"} de hábito</Text>
+            <Text style={styles.title}>Configurações {"\n"} de hábito</Text>
             <Text style={styles.inputText}>Área</Text>
             <View style={styles.inputContainer}>
               <Text style={styles.area}>{habit?.habitArea}</Text>
@@ -49,6 +50,13 @@ export default function HabitPage({ route }) {
               habitFrequency={habit?.habitFrequency}
               frequencyInput={setFrequencyInput}
             />
+
+            {frequencyInput === "Mensal" ? null : (
+              <Notification
+                notificationToggle={notificationToggle}
+                setNotificationToggle={setNotificationToggle}
+              />
+            )}
           </View>
         </View>
       </ScrollView>
@@ -98,4 +106,4 @@ const styles = StyleSheet.create({
     color: "#BBBBBB",
     fontSize: 15,
   },
-})
+});
