@@ -4,6 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import DefaultButton from "../../Components/Common/DefaultButton";
 import ExplanationCard from "../../Components/Explanation/ExplanationCard";
 
+
+
 export default function AppExplanation() {
 
   const navigation = useNavigation();
