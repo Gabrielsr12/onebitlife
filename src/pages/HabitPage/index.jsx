@@ -19,7 +19,7 @@ export default function HabitPage() {
       <ScrollView>
         <View>
           <TouchableOpacity
-            style={styles.bakcPageBtn}
+            style={styles.backPageBtn}
             onPress={() => navigation.goBack()}
           >
             <Image
