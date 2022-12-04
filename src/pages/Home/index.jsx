@@ -8,7 +8,7 @@ import EditHabit from "../../Components/Home/EditHabit";
 import CreateHabit from "../../Components/Home/CreateHabit";
  
 import ChangeNavigationService from "../../service/ChangeNavigationService";
-import HabitsService from "../../service/HabitService";
+import HabitsService from "../../service/HabitsService";
 
 
 
