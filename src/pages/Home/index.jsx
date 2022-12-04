@@ -10,6 +10,8 @@ import CreateHabit from "../../Components/Home/CreateHabit";
 import ChangeNavigationService from "../../service/ChangeNavigationService";
 import HabitsService from "../../service/HabitsService";
 
+import CheckService from "../../service/CheckService";
+
 
 
 export default function Home({ route }) {
@@ -27,6 +29,10 @@ export default function Home({ route }) {
   }
 
   const excludeArea = route.params?.excludeArea;
+
+  useEffect(() => {
+    CheckService.removeCheck(mindHabit, moneyHabit, bodyHabit, funHabit);
+  }, [mindHabit, moneyHabit, bodyHabit, funHabit]);
 
   useEffect(() => {
     HabitsService.findByArea("Mente").then((mind) => {
@@ -79,8 +85,12 @@ export default function Home({ route }) {
 
           <LifeStatus />
 
-          <StatusBar />
-          
+          <StatusBar
+          mindHabit={mindHabit?.progressBar}
+          moneyHabit={moneyHabit?.progressBar}
+          bodyHabit={bodyHabit?.progressBar}
+          funHabit={funHabit?.progressBar}
+        />
 
           {mindHabit ? (
           <EditHabit habit={mindHabit} checkColor="#90B7F3" />
