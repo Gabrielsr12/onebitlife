@@ -29,8 +29,6 @@ Notifications.setNotificationHandler({
     shouldSetBadge: false,
   }),
 });
-
-
 export default function HabitPage({ route }) {
   const navigation = useNavigation();
   const [habitInput, setHabitInput] = useState();
