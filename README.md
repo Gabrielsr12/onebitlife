@@ -42,6 +42,16 @@ O aplicativo **OneBitLife** é um projeto desenvolvido durante a **Semana Mobile
   
 </div>
 <br/><br/>
+<hr>
+
+<div align="center">
+
+&#128679; ATENÇÃO &#128679;
+
+&#128680; Para visualizar os arquivos, navegue entre as Branchs. &#128680;
+</div>
+<hr>
+
 
 ## ⏳ Inicialização
 
